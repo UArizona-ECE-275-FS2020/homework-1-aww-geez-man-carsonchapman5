@@ -56,8 +56,8 @@ int main (int ac, char** av) {
   }
   }
 
-
-	
+std::cout << start << " " << stop << " " << dimension << std::endl;
+ 	
 	// Parse the command line arguments
 	
 		
