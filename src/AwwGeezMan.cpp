@@ -101,7 +101,7 @@ if (ac == 4) {
         Z286::Morty(start, stop, step);
       }
       else {
-        std::cout<< "ERROR: Unkown dimension!!";
+        std::cout<< "ERROR: Unknown dimension!!";
       }
   
   }
