@@ -21,16 +21,21 @@ exists a Morty who says everything backwards.
 
 // Include the Morty header file
 #include "Morty.hpp"
+#include "Morty.cpp"
+#include <cstdio>
+#include <iostream>
+#include <string.h>
+
+
+void C137::Morty(int start, int stop, int step);
+void C137::Morty(int start, int stop);
+void Z286::Morty(int start, int stop, int step);
+void Z286::Morty(int start, int stop);
 
 
 int main (int ac, char** av) {
-  
-	// Parse the command line arguments. The program is executed as
-	// ./AwwGeezMan {start} {stop} {dimension}
-	// or 
-	// ./AwwGeezMan {start} {stop} {step} {dimension}
-  int start, stop, step, numArgs;
-  std::string dimension;
+  int start, stop, step = 1;
+  char* dimension;
 
 	if (ac != 4 and ac != 5) {
 		std::cout << "Error: Command line arguments are incorrect. Call program as (1) or (2)" 
@@ -40,9 +45,7 @@ int main (int ac, char** av) {
 		
 		return -1;
 	}
-
-
-  if (ac == 4) {
+if (ac == 4) {
     for (int i=0; i <= ac; i++) {
         if (i == 1){
           start = atoi(*(av+i));
@@ -51,14 +54,52 @@ int main (int ac, char** av) {
            stop = atoi(*(av+i));
          }
          else if (i == 3) {
-           dimension = *(av+3);
+           dimension = *(av+i);
          }
-  }
-  }
+      if (strcmp(dimension,"C137") == 0) {
+        C137::Morty(start, stop);
+      }
+      else if (strcmp(dimension,"Z286") == 0) {
+        Z286::Morty(start, stop);
+      }
+      else {
+        std::cout<< "Dimension unknown" << std::endl;
+      }
 
-std::cout << start << " " << stop << " " << dimension << std::endl;
+    }
+    }
+      
+  
+  
+
+
+  if (ac == 5) {
+    for (int i=0; i <= ac; i++) {
+        if (i == 1){
+          start = atoi(*(av+i));
+         }
+         else if (i == 2) {
+           stop = atoi(*(av+i));
+         }
+         else if (i == 3) {
+           step = atoi(*(av+i));
+         }
+         else if (i == 4) {
+           dimension = *(av+i);
+         }
+      if (strcmp(dimension,"C137") == 0) {
+        C137::Morty(start, stop, step);
+      }
+      else if (strcmp(dimension,"Z286") == 0) {
+        Z286::Morty(start, stop, step);
+      }
+      else {
+        std::cout<< "Dimension unknown" << std::endl;
+      }
+  }
+  }
  	
-	// Parse the command line arguments
+
 	
 		
 	// Depending on the dimension of the arguments, call the appropriate Morty
