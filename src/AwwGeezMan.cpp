@@ -21,17 +21,18 @@ exists a Morty who says everything backwards.
 
 // Include the Morty header file
 #include "Morty.hpp"
-#include "Morty.cpp"
 #include <cstdio>
 #include <iostream>
 #include <string.h>
 
-
-void C137::Morty(int start, int stop, int step);
-void C137::Morty(int start, int stop);
-void Z286::Morty(int start, int stop, int step);
-void Z286::Morty(int start, int stop);
-
+namespace C137 {
+void Morty(int start, int stop, int step);
+void Morty(int start, int stop);
+}
+namespace Z286 {
+void Morty(int start, int stop, int step);
+void Morty(int start, int stop);
+}
 
 int main (int ac, char** av) {
   int start, stop, step = 1;
@@ -45,8 +46,10 @@ int main (int ac, char** av) {
 		
 		return -1;
 	}
+
+
 if (ac == 4) {
-    for (int i=0; i <= ac; i++) {
+    for (int i=1; i<=3; i++) {
         if (i == 1){
           start = atoi(*(av+i));
          }
@@ -56,17 +59,18 @@ if (ac == 4) {
          else if (i == 3) {
            dimension = *(av+i);
          }
+    }
       if (strcmp(dimension,"C137") == 0) {
+        std::cout << "Morty C137 says:" << std::endl;
         C137::Morty(start, stop);
       }
       else if (strcmp(dimension,"Z286") == 0) {
+        std::cout << "Morty Z286 says:" << std::endl;
         Z286::Morty(start, stop);
       }
       else {
-        std::cout<< "Dimension unknown" << std::endl;
+        std::cout<< "ERROR: Unkown dimension!!" << std::endl;
       }
-
-    }
     }
       
   
@@ -74,7 +78,7 @@ if (ac == 4) {
 
 
   if (ac == 5) {
-    for (int i=0; i <= ac; i++) {
+    for (int i=1; i<=4; i++) {
         if (i == 1){
           start = atoi(*(av+i));
          }
@@ -87,16 +91,19 @@ if (ac == 4) {
          else if (i == 4) {
            dimension = *(av+i);
          }
+    }
       if (strcmp(dimension,"C137") == 0) {
+        std::cout << "Morty C137 says:" << std::endl;
         C137::Morty(start, stop, step);
       }
       else if (strcmp(dimension,"Z286") == 0) {
+        std::cout << "Morty Z286 says:" << std::endl;
         Z286::Morty(start, stop, step);
       }
       else {
-        std::cout<< "Dimension unknown" << std::endl;
+        std::cout<< "ERROR: Unkown dimension!!";
       }
-  }
+  
   }
  	
 

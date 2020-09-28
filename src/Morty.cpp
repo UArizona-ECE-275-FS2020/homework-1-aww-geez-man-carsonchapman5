@@ -29,7 +29,9 @@
            else if (i % 3 == 0) {
              std::cout << "Aww" << std::endl;
            }
+           else {
            std::cout << "\n";
+           }
         }
       }
     void Morty(int start, int stop) {
@@ -59,7 +61,9 @@ namespace Z286 {
            else if (i % 3 == 0) {
              std::cout << "wwA" << std::endl;
            }
+           else {
            std::cout << "\n";
+           }
         }
     }
   void Morty(int start, int stop) {
